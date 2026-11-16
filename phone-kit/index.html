@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>After-Hours Phone Kit — Readyforu</title>
+  <meta name="description" content="Free call-forwarding codes for Verizon, AT&amp;T, and T-Mobile, plus after-hours voicemail greetings you can copy and record. From Readyforu.">
+  <style>
+    :root {
+      --bg: #f7f4ef;
+      --card: #fffdf9;
+      --ink: #1c1a16;
+      --muted: #5c574e;
+      --line: #ddd6c8;
+      --accent: #1e3a5f;
+      --accent-soft: #e8eef6;
+      --code-bg: #f0ece4;
+      --ok: #1b4d3e;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.55;
+      font-size: 1.0625rem;
+    }
+    .skip {
+      position: absolute;
+      left: -999px;
+      top: 0;
+      background: var(--accent);
+      color: #fff;
+      padding: .5rem 1rem;
+    }
+    .skip:focus { left: .5rem; top: .5rem; z-index: 10; }
+    .draft-banner {
+      background: #fff3cd;
+      color: #3d3200;
+      text-align: center;
+      padding: .6rem 1rem;
+      font-size: .9rem;
+      border-bottom: 1px solid #e6d48a;
+    }
+    header, main, footer { width: min(44rem, calc(100% - 2rem)); margin-left: auto; margin-right: auto; }
+    header { padding: 2.25rem 0 1.25rem; }
+    header p.kicker {
+      margin: 0 0 .35rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-size: .75rem;
+      color: var(--accent);
+      font-weight: 650;
+    }
+    h1 { margin: 0 0 .5rem; font-size: 2rem; line-height: 1.2; letter-spacing: -.02em; }
+    .lede { font-size: 1.15rem; color: var(--muted); margin: 0; }
+    h2 {
+      margin: 2.25rem 0 .75rem;
+      font-size: 1.4rem;
+      line-height: 1.25;
+      color: var(--accent);
+    }
+    h3 { margin: 1.5rem 0 .5rem; font-size: 1.12rem; }
+    p, li { max-width: 42rem; }
+    a { color: var(--accent); }
+    a:hover { text-decoration-thickness: 2px; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 1rem 1.1rem;
+      margin: 1rem 0;
+    }
+    ol.kit-list { padding-left: 1.25rem; }
+    .table-wrap { overflow-x: auto; margin: 1rem 0; -webkit-overflow-scrolling: touch; border: 1px solid var(--line); border-radius: 12px; background: var(--card); }
+    table { width: 100%; border-collapse: collapse; font-size: .95rem; min-width: 36rem; }
+    th, td { text-align: left; vertical-align: top; padding: .75rem .85rem; border-bottom: 1px solid var(--line); }
+    th { background: var(--accent-soft); color: var(--accent); font-weight: 650; }
+    tr:last-child td { border-bottom: 0; }
+    code, .code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: .88em;
+      background: var(--code-bg);
+      padding: .1em .35em;
+      border-radius: 4px;
+      word-break: break-word;
+    }
+    .note { color: var(--muted); font-size: .95rem; }
+    .left-out {
+      background: var(--card);
+      border-left: 4px solid var(--accent);
+      padding: .75rem 1rem;
+      margin: 1rem 0;
+    }
+    .greeting {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 1rem 1.1rem 1.15rem;
+      margin: .85rem 0;
+    }
+    .greeting h3 { margin-top: 0; }
+    .greeting blockquote {
+      margin: 0 0 .75rem;
+      padding: 0;
+      border: 0;
+      font-style: normal;
+    }
+    button.copy {
+      appearance: none;
+      border: 1px solid var(--accent);
+      background: #fff;
+      color: var(--accent);
+      font: inherit;
+      font-size: .9rem;
+      padding: .35rem .7rem;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button.copy:hover, button.copy:focus { background: var(--accent-soft); }
+    button.copy[data-copied="1"] { background: var(--ok); color: #fff; border-color: var(--ok); }
+    .cta {
+      background: var(--accent);
+      color: #fff;
+      border-radius: 14px;
+      padding: 1.35rem 1.25rem 1.5rem;
+      margin: 2rem 0 1rem;
+    }
+    .cta h2 { color: #fff; margin-top: 0; }
+    .cta p { margin: .4rem 0; }
+    .cta a { color: #fff; }
+    .demo {
+      font-size: 1.45rem;
+      font-weight: 700;
+      letter-spacing: .01em;
+      display: inline-block;
+      margin: .35rem 0;
+    }
+    footer {
+      padding: 1.5rem 0 2.5rem;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+    footer h2 { font-size: 1.05rem; margin-top: 1.25rem; }
+    footer ul { padding-left: 1.15rem; }
+    footer li { margin: .3rem 0; }
+    nav.toc { margin: 1.25rem 0 0; }
+    nav.toc ol { margin: .35rem 0 0; padding-left: 1.2rem; }
+    @media (max-width: 640px) {
+      h1 { font-size: 1.65rem; }
+      table { font-size: .88rem; }
+    }
+    @media print {
+      .draft-banner, button.copy, .skip { display: none; }
+      body { background: #fff; }
+      .cta { color: #000; background: #fff; border: 2px solid #000; }
+      .cta h2, .cta a { color: #000; }
+      a { color: #000; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header>
+    <p class="kicker">Readyforu</p>
+    <h1>After-Hours Phone Kit</h1>
+    <p class="lede">A free guide for small businesses. No sign-up. Forward the calls you don’t answer, or record a clear voicemail greeting — and, if you want, hear Sarah pick up instead.</p>
+    <nav class="toc" aria-label="On this page">
+      <ol>
+        <li><a href="#intro">When you close, the phone still rings</a></li>
+        <li><a href="#forwarding">Forward the calls you don’t answer</a></li>
+        <li><a href="#greetings">After-hours voicemail greetings</a></li>
+        <li><a href="#sarah">Or skip voicemail</a></li>
+      </ol>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section id="intro" aria-labelledby="intro-h">
+      <h2 id="intro-h">When you close, the phone still rings</h2>
+      <p>After the shop is closed, people still call. On most lines, those calls ring a few times and then go to voicemail. Some callers leave a message. Some hang up.</p>
+      <p>This kit has two things you can use on your own, tonight:</p>
+      <ol class="kit-list">
+        <li><strong>Call-forwarding codes</strong> published by the major U.S. carriers, so unanswered or busy calls can go to another number you choose (a cell, a partner, or another line).</li>
+        <li><strong>Short after-hours voicemail greetings</strong> you can copy and record, written for six common trades.</li>
+      </ol>
+      <p>If you’d rather skip voicemail altogether, Sarah can answer those calls for you. That’s at the bottom, with a number you can call to hear her.</p>
+    </section>
+
+    <section id="forwarding" aria-labelledby="fwd-h">
+      <h2 id="fwd-h">Forward the calls you don’t answer</h2>
+      <p>Dial these from the phone line you want to forward — usually the business number itself. Replace <code>NUMBER</code> with the 10-digit U.S. number the calls should go to, including the area code, with no spaces or dashes unless the carrier’s example uses them.</p>
+      <p>Listen for the confirmation tone or message, then test: call the business number from a different phone and let it ring (or, if you set “all calls,” it should forward right away).</p>
+      <div class="card">
+        <p style="margin-top:0"><strong>Two kinds of forwarding</strong></p>
+        <ul>
+          <li><strong>No-answer / busy (conditional):</strong> your phone still rings first. If you don’t pick up, or the line is busy, the call goes to the other number instead of voicemail. This is the usual after-hours setup if you still want to catch calls when you’re free.</li>
+          <li><strong>All calls (unconditional):</strong> every inbound call goes straight to the other number. Your phone will not ring. Use this when you’re closed and don’t want the business line to ring at all.</li>
+        </ul>
+        <p class="note" style="margin-bottom:0">Codes can vary by plan and by area. If a code doesn’t work, use the carrier’s help page in <a href="#sources">Sources</a>, or ask the carrier. Features are not on every plan.</p>
+      </div>
+
+      <h3 id="cell">Cell phones</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Carrier</th>
+              <th scope="col">No-answer / busy</th>
+              <th scope="col">All calls</th>
+              <th scope="col">Turn it off</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Verizon Wireless</th>
+              <td><code>*71</code> + the 10-digit number. Verizon publishes this as one combined “Conditional Call Forwarding (No Answer / Busy Transfer)” feature: the phone rings first, then forwards if it is busy or unanswered after about 3–6 rings, instead of going to voicemail. Example from Verizon: <code>*71-999-555-4567</code>.</td>
+              <td><code>*72</code> + the 10-digit number. Example from Verizon: <code>*72-999-555-4567</code>. The phone will not ring.</td>
+              <td><code>*73</code>. Listen for a confirmation tone or message (Verizon says it may sound like a busy signal), then wait for the call to end on its own. The same off code turns off immediate and conditional forwarding.</td>
+            </tr>
+            <tr>
+              <th scope="row">T-Mobile</th>
+              <td>No answer (no reply): <code>**61*1NUMBER#</code>. Busy: <code>**67*1NUMBER#</code>. Not reachable (phone off or no signal): <code>**62*1NUMBER#</code>. Dial each as one string, including the <code>#</code> at the end. T-Mobile writes the destination as <code>1</code> plus the 10-digit number. Spaces in T-Mobile’s own table are typographic only. Optional ring delay for no-answer: <code>**61*1NUMBER**SECONDS#</code>, where seconds is 5, 10, 15, up to 30.</td>
+              <td><code>**21*1NUMBER#</code></td>
+              <td>No answer: <code>##61#</code>. Busy: <code>##67#</code>. Not reachable: <code>##62#</code>. All calls: <code>##21#</code>. To reset all call forwarding to default: <code>##004#</code>.</td>
+            </tr>
+            <tr>
+              <th scope="row">AT&amp;T Wireless</th>
+              <td><em>Not listed.</em> AT&amp;T’s official wireless help pages checked on November 16, 2026 do not publish a no-answer, busy, or unreachable star code. Do not use unofficial <code>*61</code> / <code>*67</code> / <code>*62</code> / <code>*71</code> lists for an AT&amp;T mobile line. Ask AT&amp;T which missed-call forwarding that line accepts, or use the all-calls code only if you want every call to go to the other number.</td>
+              <td><code>*21*NUMBER#</code>. Wait at least three seconds for the confirmation tone. AT&amp;T’s device tutorial writes the <code>21</code> in italics and gives the example italic-21 + <code>1234567890</code> + <code>#</code>, which is the usual way of writing <code>*21*1234567890#</code>.</td>
+              <td><code>#21#</code>. Wait at least three seconds for the confirmation tone. AT&amp;T says you can change wireless call forwarding only from the wireless phone, not online.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note"><strong>Verizon Wireless notes.</strong> Forward only to a 10-digit U.S. voice number (area code included, even if it is local). Verizon does not allow forwarding to an international number. Star codes may not work outside the Verizon wireless coverage area. Set this up from the phone itself; Verizon’s FAQs say you can’t manage it without the mobile phone (customer service can help at 800-922-0204 if needed). Call forwarding does not forward text messages. Verizon bills forwarded calls according to your plan; there is no monthly fee on most plans, but check yours.</p>
+      <p class="note"><strong>T-Mobile notes.</strong> T-Mobile says you can’t forward to international numbers, only to 10- or 11-digit numbers. Forwarding while roaming depends on the host network. Some short codes are not supported on select plans. For after-hours missed-call coverage, set no-answer (<code>**61*</code>) and, if you also want busy and off-or-out-of-range calls included, <code>**67*</code> and <code>**62*</code> to the same number.</p>
+
+      <h3 id="desk">Home and business desk phones</h3>
+      <p>These codes are for the named landline or desk-phone services, not for a cell phone on the same brand.</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Service</th>
+              <th scope="col">No-answer</th>
+              <th scope="col">Busy</th>
+              <th scope="col">All calls</th>
+              <th scope="col">Turn it off</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">AT&amp;T Phone and AT&amp;T Phone – Advanced (home)</th>
+              <td><code>*92</code>, enter the forwarding number, then <code>#</code></td>
+              <td><code>*90</code>, enter the forwarding number, then <code>#</code></td>
+              <td><code>*72</code>, enter the forwarding number, then <code>#</code></td>
+              <td>No-answer: <code>*93#</code>. Busy: <code>*91#</code>. All calls: <code>*73#</code>.</td>
+            </tr>
+            <tr>
+              <th scope="row">AT&amp;T Phone for Business</th>
+              <td><code>*92</code>, enter a forwarding number, then <code>#</code></td>
+              <td><code>*90</code>, enter a forwarding number, then <code>#</code></td>
+              <td><code>*72</code>, enter a forwarding number, then <code>#</code></td>
+              <td>No-answer: <code>*93#</code>. Busy: <code>*91#</code>. All calls: <code>*73#</code>. If you already stored the forwarding number in your online AT&amp;T account, AT&amp;T says you may not need to enter it again by phone.</td>
+            </tr>
+            <tr>
+              <th scope="row">Verizon Fios Digital Voice and Verizon traditional home phone</th>
+              <td>Verizon’s official table labels this row “Call Forwarding Busy Don’t Answer”: activate <code>*92</code>, deactivate <code>*93</code>. Confirm with Verizon or on your bill that this is the no-answer behavior you want.</td>
+              <td>“Call Forwarding Busy Line”: activate <code>*90</code>, deactivate <code>*91</code>.</td>
+              <td>“Call Forwarding”: activate <code>*72</code>, deactivate <code>*73</code>.</td>
+              <td>Use the matching deactivate code in the same row. Verizon notes that products and feature codes may not be available in all areas. There is also a “Call Forwarding Busy Line/Don’t Answer (Variable)” pair, <code>*42</code> / <code>*43</code>; use that only if Verizon has that feature on your line.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note"><strong>Traditional AT&amp;T local home phone (older copper service).</strong> A separate AT&amp;T home-phone article lists <code>*72</code> / <code>*73</code> (or <code>72#</code> / <code>73#</code>) for all-call forwarding, but says Call Forwarding – Busy Line and Call Forwarding – Don’t Answer are set by calling AT&amp;T at 800-288-2020, not with a star code. If you have traditional local service rather than AT&amp;T Phone / AT&amp;T Phone – Advanced, use that article or call AT&amp;T instead of the <code>*90</code> / <code>*92</code> row above.</p>
+
+      <h3 id="voip">Google Voice and RingCentral</h3>
+      <p>These services do not publish star codes for no-answer or busy forwarding. You set forwarding in the app or a web portal.</p>
+
+      <div class="card">
+        <h3 style="margin-top:0">Google Voice</h3>
+        <ol>
+          <li>On a computer, go to <a href="https://voice.google.com">voice.google.com</a> (or use the Voice app).</li>
+          <li>Open <strong>Settings</strong>.</li>
+          <li>Link the phone number that should receive calls: <strong>Account</strong> → <strong>Linked numbers</strong> → <strong>New linked number</strong>, then verify the number. Google says you can link up to six numbers, and that a number already linked to another Google Voice number can’t be added.</li>
+          <li>Under <strong>Settings</strong> → <strong>Calls</strong>, use <strong>Incoming calls</strong> and <strong>Call forwarding</strong> to choose which of your devices and linked numbers should ring.</li>
+          <li>To stop forwarding to a linked number, turn that number off under <strong>Call forwarding</strong>. Google notes that turning forwarding off does not remove the linked number. To remove it, go to <strong>Devices and numbers</strong> and tap <strong>Remove</strong>.</li>
+        </ol>
+        <p>Google’s official help also says: “Forwarding calls from your Google Voice number to an automated system is unsupported.” If you want those calls to go to an auto attendant or an AI receptionist, check with Google, or use a different line.</p>
+        <p class="note" style="margin-bottom:0">Workspace accounts can send calls to voicemail after working hours by following Google Calendar hours under <strong>Do not disturb</strong>. That is voicemail, not forwarding to another number.</p>
+      </div>
+
+      <div class="card">
+        <h3 style="margin-top:0">RingCentral (RingEX app or Admin Portal)</h3>
+        <ol>
+          <li>In the RingCentral desktop or web app, go to <strong>Settings</strong> → <strong>Phone</strong>.</li>
+          <li>Scroll to <strong>Call handling</strong> and click <strong>Edit</strong>.</li>
+          <li>Set <strong>Work</strong> hours and <strong>After hours</strong>. If work hours are set to 24 hours, 7 days a week, after-hours uses the same settings; click <strong>Edit Schedule</strong> to set closing hours.</li>
+          <li>Under <strong>Missed calls</strong>, choose <strong>Forward to external number</strong> and enter the 10-digit number. Other official options are send to voicemail, play a message and disconnect, or forward to an extension.</li>
+          <li>To send every call, use <strong>Forward all calls</strong> (from your profile / call rules) and enter an extension or external number. You can add a schedule, or turn it on and off by hand.</li>
+          <li>Click <strong>Save</strong>. To undo missed-call forwarding, edit <strong>Call handling</strong> again and change <strong>Missed calls</strong> back to voicemail (or your previous setting). Turn <strong>Forward all calls</strong> off to take calls on the RingCentral line again.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="greetings" aria-labelledby="greet-h">
+      <h2 id="greet-h">After-hours voicemail greetings</h2>
+      <p>Copy a greeting, replace <code>[Business Name]</code>, and record it on your voicemail. Keep it short. Say the name clearly, ask for the basics, and stop.</p>
+
+      <article class="greeting">
+        <h3>Plumbing</h3>
+        <blockquote id="g-plumbing">Hi, you’ve reached [Business Name]. We’re closed right now. Please leave your name, number, address, and a short description of the plumbing issue, and we’ll call you back.</blockquote>
+        <button class="copy" type="button" data-copy="g-plumbing">Copy greeting</button>
+      </article>
+      <article class="greeting">
+        <h3>HVAC</h3>
+        <blockquote id="g-hvac">Hi, you’ve reached [Business Name]. The shop is closed at the moment. Please leave your name, number, and a short note about the heating or cooling issue, and we’ll get back to you.</blockquote>
+        <button class="copy" type="button" data-copy="g-hvac">Copy greeting</button>
+      </article>
+      <article class="greeting">
+        <h3>Cleaning</h3>
+        <blockquote id="g-cleaning">Hi, you’ve reached [Business Name]. We’re done for the day. Please leave your name, number, and whether you’d like to book a cleaning or change an existing appointment, and we’ll call you back.</blockquote>
+        <button class="copy" type="button" data-copy="g-cleaning">Copy greeting</button>
+      </article>
+      <article class="greeting">
+        <h3>Landscaping</h3>
+        <blockquote id="g-lawn">Hi, you’ve reached [Business Name]. We’re away from the phone right now. Please leave your name, number, and a short note about the work you need, and we’ll get back to you.</blockquote>
+        <button class="copy" type="button" data-copy="g-lawn">Copy greeting</button>
+      </article>
+      <article class="greeting">
+        <h3>Salon or barber</h3>
+        <blockquote id="g-salon">Hi, you’ve reached [Business Name]. We’re closed at the moment. Please leave your name, number, and the service or time you’re hoping for, and we’ll get back to you to book it.</blockquote>
+        <button class="copy" type="button" data-copy="g-salon">Copy greeting</button>
+      </article>
+      <article class="greeting">
+        <h3>Auto repair</h3>
+        <blockquote id="g-auto">Hi, you’ve reached [Business Name]. The shop is closed right now. Please leave your name, number, your vehicle, and a short description of the problem, and we’ll call you back.</blockquote>
+        <button class="copy" type="button" data-copy="g-auto">Copy greeting</button>
+      </article>
+    </section>
+
+    <section class="cta" id="sarah" aria-labelledby="cta-h">
+      <h2 id="cta-h">Or skip voicemail</h2>
+      <p>Sarah answers for you. 14 days free, set up for you, cancel anytime.</p>
+      <p>Call to hear Sarah:</p>
+      <p><a class="demo" href="tel:+13163759106">(316) 375-9106</a></p>
+      <p>Questions? Ask Jacob at Readyforu. Instagram: <a href="https://www.instagram.com/readyforu8/">@readyforu8</a>.</p>
+    </section>
+  </main>
+
+  <footer id="sources">
+    <p>Codes and steps above were checked on each carrier’s own official help pages on Monday, November 16, 2026 (America/Chicago). If a carrier changes a page, use that page, not this kit.</p>
+
+    <h2>Sources</h2>
+    <p><strong>Verizon Wireless.</strong></p>
+    <ul>
+      <li><a href="https://www.verizon.com/support/knowledge-base-181139/">Turn Call Forwarding On from Device</a> — <code>*72</code> (immediate / all calls) and <code>*71</code> (“Conditional Call Forwarding (No Answer / Busy Transfer)”).</li>
+      <li><a href="https://www.verizon.com/support/knowledge-base-17268/">Turn Call Forwarding Off from Device</a> — <code>*73</code>.</li>
+      <li><a href="https://www.verizon.com/support/call-forwarding-faqs/">Call Forwarding FAQs</a> — how to start (<code>*72</code> or <code>*71</code>) and stop (<code>*73</code>); 10-digit U.S. voice numbers only; texts are not forwarded; confirmation on <code>*73</code> may sound like a busy signal.</li>
+      <li><a href="https://www.verizon.com/support/pound-star-codes/">Pound and star codes</a> — <code>*71</code> “Forward unanswered calls (mobile phone will ring first)”; <code>*72</code> “Forward all calls immediately”; <code>*73</code> “Stop forwarding calls.”</li>
+    </ul>
+    <p><strong>Verizon Fios Digital Voice and traditional home phone.</strong></p>
+    <ul>
+      <li><a href="https://www.verizon.com/support/residential/homephone/calling-features/star-codes-other-features">Fios Digital Voice &amp; Traditional Star Codes &amp; Other Calling Features</a> — <code>*72</code> / <code>*73</code> Call Forwarding; <code>*90</code> / <code>*91</code> Call Forwarding Busy Line; <code>*92</code> / <code>*93</code> Call Forwarding Busy Don’t Answer; <code>*42</code> / <code>*43</code> Call Forwarding Busy Line/Don’t Answer (Variable).</li>
+    </ul>
+    <p><strong>T-Mobile.</strong></p>
+    <ul>
+      <li><a href="https://www.t-mobile.com/support/plans-features/self-service-short-codes">Self-service &amp; short codes</a> — <code>**21*</code> / <code>##21#</code>, <code>**61*</code> / <code>##61#</code>, <code>**67*</code> / <code>##67#</code>, <code>**62*</code> / <code>##62#</code>, <code>##004#</code>, and the optional <code>**61*</code> delay example.</li>
+      <li><a href="https://www.t-mobile.com/support/plans-features/calling-services">Calling services</a> — describes forwarding all calls, or if you don’t answer, if the phone is off, or if you’re out of signal range; 10- or 11-digit destinations only; no international forwarding.</li>
+    </ul>
+    <p><strong>AT&amp;T Wireless.</strong></p>
+    <ul>
+      <li><a href="https://www.att.com/device-support/article/147973/">Call Forwarding (device support, article 147973)</a> — on: italic 21 + 10-digit number + <code>#</code> (example italic-21 + <code>1234567890</code> + <code>#</code>); off: <code>#21#</code>; wait at least three seconds for the confirmation tone.</li>
+      <li><a href="https://www.att.com/device-support/article/147564/">Call Forwarding (device support, article 147564)</a> — same on/off pair.</li>
+      <li><a href="https://www.att.com/support/article/wireless/KM1011513/">Call Forwarding for Wireless (KM1011513)</a> — confirms forwarding is changed only from the wireless phone, not online, and points to those device tutorials. It does not list no-answer or busy codes.</li>
+    </ul>
+    <p><strong>AT&amp;T Phone / AT&amp;T Phone – Advanced (home) and AT&amp;T Phone for Business.</strong></p>
+    <ul>
+      <li><a href="https://www.att.com/support/article/home-phone/KM1000459/">Learn about phone calling features and star codes (KM1000459)</a> — <code>*72</code> / <code>*73#</code>, <code>*90</code> / <code>*91#</code>, <code>*92</code> / <code>*93#</code>. Also published for AT&amp;T Digital Phone at the <a href="https://www.att.com/support/article/u-verse-voice/KM1000459/">U-verse Voice version of the same article</a>.</li>
+      <li><a href="https://www.att.com/support/smallbusiness/article/smb-local-long-distance/KM1181691/">Manage Call Forwarding, AT&amp;T Phone for Business (KM1181691)</a> — the same <code>*72</code> / <code>*73#</code>, <code>*92</code> / <code>*93#</code>, <code>*90</code> / <code>*91#</code> set.</li>
+      <li><a href="https://www.att.com/support/article/home-phone/KM1000582/">Learn how to forward calls (KM1000582)</a> — traditional AT&amp;T local home phone: <code>*72</code> or <code>72#</code> and <code>*73</code> or <code>73#</code> for all-call forwarding; busy-line and don’t-answer forwarding are set by calling 800-288-2020.</li>
+    </ul>
+    <p><strong>Google Voice.</strong></p>
+    <ul>
+      <li><a href="https://support.google.com/voice/answer/165221">Set up your phone to make &amp; receive Google Voice calls</a> — linked numbers, incoming-call and call-forwarding toggles, and the note that forwarding a Google Voice number to an automated system is unsupported.</li>
+      <li><a href="https://support.google.com/voice/answer/115106">Send Google Voice calls to voicemail</a> — how to turn linked numbers and devices off, and Do not disturb.</li>
+    </ul>
+    <p><strong>RingCentral.</strong></p>
+    <ul>
+      <li><a href="https://support.ringcentral.com/article-v2/Forwarding-calls-external-number.html?brand=RC_US&amp;language=en_US&amp;product=RingEX">Forwarding calls in the RingCentral app and Admin Portal</a> — forward all calls to an extension or external number, with or without a schedule.</li>
+      <li><a href="https://support.ringcentral.com/shared/content/app/setting-up-user-call-forwarding-in-the-ringcentral-app-desktop-a.html">Setting up user call forwarding in the RingCentral app desktop and web</a> — Settings → Phone → Call handling; Work / After hours; Missed calls → Forward to external number.</li>
+    </ul>
+    <p>Readyforu · After-Hours Phone Kit</p>
+  </footer>
+
+  <script>
+    document.querySelectorAll("button.copy").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var el = document.getElementById(btn.getAttribute("data-copy"));
+        if (!el) return;
+        var text = (el.textContent || "").trim();
+        var done = function () {
+          btn.setAttribute("data-copied", "1");
+          btn.textContent = "Copied";
+          setTimeout(function () {
+            btn.removeAttribute("data-copied");
+            btn.textContent = "Copy greeting";
+          }, 1600);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(done).catch(function () {
+            window.prompt("Copy this greeting:", text);
+          });
+        } else {
+          window.prompt("Copy this greeting:", text);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
