@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Readyforu — Sarah answers after hours</title>
+  <meta name="description" content="Sarah is Readyforu’s after-hours receptionist for small businesses. Call (316) 375-9106 to hear her, then ask for a free 14-day trial. We set it up for you. Cancel anytime.">
+  <meta property="og:title" content="Readyforu — Sarah answers after hours">
+  <meta property="og:description" content="Sarah is Readyforu’s after-hours receptionist for small businesses. Call (316) 375-9106 to hear her, then ask for a free 14-day trial. We set it up for you. Cancel anytime.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Readyforu">
+  <meta property="og:url" content="https://chowpoppy.github.io/readyforu/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Readyforu — Sarah answers after hours">
+  <meta name="twitter:description" content="Sarah is Readyforu’s after-hours receptionist for small businesses. Call (316) 375-9106 to hear her, then ask for a free 14-day trial. We set it up for you. Cancel anytime.">
+  <style>
+    :root {
+      --bg: #f7f4ef;
+      --card: #fffdf9;
+      --ink: #1c1a16;
+      --muted: #5c574e;
+      --line: #ddd6c8;
+      --accent: #1e3a5f;
+      --accent-soft: #e8eef6;
+      --ok: #1b4d3e;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.55;
+      font-size: 1.0625rem;
+    }
+    .skip {
+      position: absolute;
+      left: -999px;
+      top: 0;
+      background: var(--accent);
+      color: #fff;
+      padding: .5rem 1rem;
+    }
+    .skip:focus { left: .5rem; top: .5rem; z-index: 10; }
+    .draft-banner {
+      background: #fff3cd;
+      color: #3d3200;
+      text-align: center;
+      padding: .6rem 1rem;
+      font-size: .9rem;
+      border-bottom: 1px solid #e6d48a;
+    }
+    .wrap, header, main, footer { width: min(44rem, calc(100% - 2rem)); margin-left: auto; margin-right: auto; }
+    header { padding: 1.5rem 0 0.5rem; }
+    .brand-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: .75rem 1.25rem;
+    }
+    p.kicker {
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-size: .75rem;
+      color: var(--accent);
+      font-weight: 650;
+    }
+    nav.site {
+      font-size: .95rem;
+    }
+    nav.site ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .35rem 1rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    nav.site a { color: var(--accent); }
+    h1 { margin: 1.35rem 0 .6rem; font-size: 2rem; line-height: 1.2; letter-spacing: -.02em; text-wrap: balance; }
+    .lede { font-size: 1.15rem; color: var(--muted); margin: 0 0 1.1rem; }
+    h2 {
+      margin: 0 0 .75rem;
+      font-size: 1.4rem;
+      line-height: 1.25;
+      color: var(--accent);
+      text-wrap: balance;
+    }
+    p, li { max-width: 42rem; }
+    a { color: var(--accent); }
+    a:hover { text-decoration-thickness: 2px; }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 3px;
+    }
+    section { margin: 2.25rem 0; }
+    .hero { padding-top: .5rem; }
+    .actions {
+      display: grid;
+      justify-items: stretch;
+      gap: .7rem;
+      margin: 1.15rem 0 0;
+      width: fit-content;
+      max-width: 100%;
+    }
+    .actions .btn-tertiary { justify-self: start; }
+    .btn {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: .01em;
+      padding: .9rem 1.15rem;
+      border-radius: 12px;
+      border: 2px solid var(--accent);
+      line-height: 1.3;
+      text-align: center;
+    }
+    .btn:hover { background: #162c48; border-color: #162c48; color: #fff; text-decoration: none; }
+    .btn-secondary {
+      background: var(--card);
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+    .btn-secondary:hover {
+      background: var(--accent-soft);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .btn-tertiary {
+      background: transparent;
+      color: var(--accent);
+      border-color: transparent;
+      font-weight: 650;
+      padding: .65rem .4rem;
+      text-decoration: underline;
+      text-underline-offset: .18em;
+    }
+    .btn-tertiary:hover {
+      background: transparent;
+      border-color: transparent;
+      color: #162c48;
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+    }
+    .hint { color: var(--muted); font-size: .95rem; margin: .5rem 0 0; }
+    .steps {
+      display: grid;
+      gap: .85rem;
+      margin: 1rem 0 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: step;
+    }
+    .steps li {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 1rem 1.1rem 1.1rem;
+      max-width: none;
+      counter-increment: step;
+    }
+    .steps h3 {
+      margin: 0 0 .35rem;
+      font-size: 1.08rem;
+      display: flex;
+      gap: .6rem;
+      align-items: baseline;
+    }
+    .steps h3::before {
+      content: counter(step);
+      flex: 0 0 auto;
+      width: 1.7rem;
+      height: 1.7rem;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #fff;
+      font-size: .9rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+    }
+    .steps p { margin: 0; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 1rem 1.1rem;
+      margin: 1rem 0 0;
+    }
+    .faq {
+      margin: 1rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .faq li {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 1rem 1.1rem;
+      margin: 0 0 .85rem;
+      max-width: none;
+    }
+    .faq li:last-child { margin-bottom: 0; }
+    .faq h3 {
+      margin: 0 0 .35rem;
+      font-size: 1.08rem;
+    }
+    .faq p { margin: 0; }
+    .cta {
+      background: var(--accent);
+      color: #fff;
+      border-radius: 14px;
+      padding: 1.35rem 1.25rem 1.5rem;
+      margin: 2.25rem 0 1rem;
+    }
+    .cta h2 { color: #fff; margin-top: 0; }
+    .cta p { margin: .45rem 0; }
+    .cta a:not(.btn) { color: #fff; }
+    .cta .actions { margin-top: .85rem; }
+    .cta .btn {
+      background: #fff;
+      color: var(--accent);
+      border-color: #fff;
+    }
+    .cta .btn:hover { background: var(--accent-soft); border-color: var(--accent-soft); color: var(--accent); }
+    .cta .btn-secondary {
+      background: transparent;
+      color: #fff;
+      border-color: #fff;
+    }
+    .cta .btn-secondary:hover {
+      background: rgba(255,255,255,.12);
+      border-color: #fff;
+      color: #fff;
+    }
+    .cta .hint { color: #e8eef6; }
+    .kit-link {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+    }
+    .kit-link:hover { border-color: var(--accent); }
+    .kit-link h2 { margin-bottom: .4rem; }
+    .kit-link p { margin: 0; color: var(--muted); }
+    .kit-link .more { color: var(--accent); font-weight: 650; margin-top: .7rem; display: inline-block; }
+    footer {
+      padding: 1.25rem 0 2.5rem;
+      color: var(--muted);
+      font-size: .95rem;
+      border-top: 1px solid var(--line);
+      margin-top: 1rem;
+    }
+    footer h2 { font-size: 1.05rem; margin: 0 0 .5rem; }
+    address { font-style: normal; margin: 0; }
+    address p { margin: .15rem 0; }
+    footer .social { margin: .85rem 0 0; }
+    footer .fine { margin: 1rem 0 0; font-size: .9rem; }
+    @media (max-width: 699px) {
+      h1 { font-size: 1.65rem; }
+      .brand-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: .5rem;
+      }
+      .btn { font-size: 1.02rem; }
+    }
+    @media (min-width: 700px) {
+      h1 { font-size: 2.25rem; }
+    }
+    @media print {
+      .draft-banner, .skip { display: none; }
+      body { background: #fff; }
+      .cta { color: #000; background: #fff; border: 2px solid #000; }
+      .cta h2, .cta a, .cta .hint { color: #000; }
+      .btn, .cta .btn, .cta .btn-secondary { background: #fff; color: #000; border-color: #000; }
+      a { color: #000; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header>
+    <div class="brand-row">
+      <p class="kicker">Readyforu</p>
+      <nav class="site" aria-label="Site">
+        <ul>
+          <li><a href="./" aria-current="page">Home</a></li>
+          <li><a href="phone-kit/">Phone Kit</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="tel:+13163759106">Call Sarah</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-h">
+      <h1 id="hero-h">Sarah answers after-hours calls for your business.</h1>
+      <p class="lede">Sarah is Readyforu’s after-hours receptionist for small businesses. She answers in your business’s name and takes the caller’s name, phone number, and what they need, so you can call back.</p>
+      <p>Call the demo line to hear her, then ask for the free 14-day trial. We set it up for you. Cancel anytime.</p>
+      <div class="actions">
+        <a class="btn" href="tel:+13163759106">Call Sarah now: (316) 375-9106</a>
+        <a class="btn btn-secondary" href="mailto:readyforuai@gmail.com?subject=Free%20trial">Start my 14-day free trial</a>
+        <a class="btn btn-tertiary" href="phone-kit/">Get the free after-hours phone kit</a>
+      </div>
+    </section>
+
+    <section id="how" aria-labelledby="how-h">
+      <h2 id="how-h">How it works</h2>
+      <ol class="steps">
+        <li>
+          <h3>You forward the calls</h3>
+          <p>You forward unanswered or after-hours calls to Sarah.</p>
+        </li>
+        <li>
+          <h3>Sarah answers in your name</h3>
+          <p>She answers in your business’s name.</p>
+        </li>
+        <li>
+          <h3>You get the details</h3>
+          <p>You get the caller’s name, phone number, and what they need, so you can call back.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section id="what" aria-labelledby="what-h">
+      <h2 id="what-h">What Sarah does</h2>
+      <p>Sarah answers after-hours calls in your business’s name and takes the caller’s name, phone number, and what they need.</p>
+      <p>We also offer a free after-hours missed-call check. Email <a href="mailto:readyforuai@gmail.com">readyforuai@gmail.com</a> if you’d like one.</p>
+    </section>
+
+    <section id="for" aria-labelledby="for-h">
+      <h2 id="for-h">Who it’s for</h2>
+      <p>Sarah is for small businesses. We don’t take dental offices.</p>
+    </section>
+
+    <section id="faq" aria-labelledby="faq-h">
+      <h2 id="faq-h">FAQ</h2>
+      <ul class="faq">
+        <li>
+          <h3>Is it free to try?</h3>
+          <p>Yes, 14 days, cancel anytime.</p>
+        </li>
+        <li>
+          <h3>Do I have to set it up?</h3>
+          <p>No, we set it up for you.</p>
+        </li>
+        <li>
+          <h3>Do I need a new number?</h3>
+          <p>No, you keep your number and forward calls.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="cta" id="offer" aria-labelledby="offer-h">
+      <h2 id="offer-h">Hear Sarah, then try 14 days free</h2>
+      <p>Call the demo line to hear her, then ask for the free 14-day trial. We set it up for you. Cancel anytime.</p>
+      <div class="actions">
+        <a class="btn" href="tel:+13163759106">Call Sarah now: (316) 375-9106</a>
+        <a class="btn btn-secondary" href="mailto:readyforuai@gmail.com?subject=Free%20trial">Start my 14-day free trial</a>
+      </div>
+    </section>
+
+    <section id="kit" aria-labelledby="kit-h">
+      <a class="card kit-link" href="phone-kit/">
+        <h2 id="kit-h">Free After-Hours Phone Kit</h2>
+        <p>Call-forwarding codes for the major U.S. carriers, plus short voicemail greetings you can copy and record. A free guide. No sign-up.</p>
+        <span class="more">Get the free after-hours phone kit</span>
+      </a>
+    </section>
+  </main>
+
+  <footer>
+    <h2>Readyforu</h2>
+    <address>
+      <p>Wichita, KS</p>
+      <p><a href="mailto:readyforuai@gmail.com">readyforuai@gmail.com</a></p>
+    </address>
+    <p class="social">Instagram: <a href="https://www.instagram.com/readyforu8/">@readyforu8</a></p>
+    <p class="fine">Readyforu</p>
+  </footer>
+</body>
+</html>
